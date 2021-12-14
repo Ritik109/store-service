@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  store-db:
+    image: mongo:latest
+    container_name: store-db-container
+    ports:
+      - 27017:27017
+  store-service:
+    image: store-service-image
+    container_name: store-service-container
+    ports:
+      - 8085:8085
+    links:
+      - store-db
